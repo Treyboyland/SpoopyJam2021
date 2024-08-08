@@ -4,6 +4,11 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
+    [SerializeField]
+    protected bool isPlayer;
+
+    public bool IsPlayer { get { return isPlayer; } }
+
     protected virtual bool CanFire { get; set; } = true;
 
 

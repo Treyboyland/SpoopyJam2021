@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Shotgun Bullet
   m_EditorClassIdentifier: 
   damage: 30
-  lifeTime: 0.5
+  lifeTime: 0.1
   isPiercing: 1
   speed: 50

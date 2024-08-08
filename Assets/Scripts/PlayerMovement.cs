@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float jumpPower;
 
+    [SerializeField]
+    PlayerReticle reticle;
+
     Vector2 force;
 
     // Update is called once per frame
@@ -45,14 +48,14 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed)
         {
             var vector = new Vector2(0, jumpPower);
-            Debug.LogWarning("Jump Vector: " + vector);
+            //Debug.LogWarning("Jump Vector: " + vector);
             body.AddForce(vector, ForceMode2D.Impulse);
         }
     }
 
     public void HandleFire1(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
             player.LeftWeapon.Fire();
         }
@@ -60,9 +63,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleFire2(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
             player.RightWeapon.Fire();
         }
+    }
+
+    public void HandleMouseMove(InputAction.CallbackContext context)
+    {
+        var pos = context.ReadValue<Vector2>();
+        //Debug.LogWarning("Mouse: " + pos);
+        reticle.SetPosition(pos);
     }
 }

@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraTracker : MonoBehaviour
+public class ObjectTracker : MonoBehaviour
 {
     [SerializeField]
     Transform objectToTrack;
+
+    public Transform ObjectToTrack { get { return objectToTrack; } set { objectToTrack = value; } }
 
     [SerializeField]
     Vector3 offset;
@@ -25,6 +27,9 @@ public class CameraTracker : MonoBehaviour
         }
     }
 
-
+    private void OnDisable()
+    {
+        objectToTrack = null;
+    }
 
 }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4963d4bae56ee5649bd6c825a60c4acb, type: 3}
+  m_Name: ZombieSounds
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: fd128bb494f3e974682cf92d5daac964, type: 3}
+  - {fileID: 8300000, guid: 997c7a3c2ea5f5a47b0f103627abf685, type: 3}
+  - {fileID: 8300000, guid: 7a750de4dd9b85e4c8e7eae29d0d5d2c, type: 3}
+  - {fileID: 8300000, guid: bb2de9c62c67e8544a2b899627f76b48, type: 3}
+  - {fileID: 8300000, guid: 83ffe1955ed10e04bbbf946e051a5b2e, type: 3}
+  - {fileID: 8300000, guid: 1f6c4f1dabc9bd04283f2eb6a8ecf560, type: 3}
+  pitchRange: {x: 0.7, y: 1.3}
+  volumeRange: {x: 0.5, y: 1}
+  audioPrefab: {fileID: 7974386042626974446, guid: 583d0826e40d59a44ba317c70abfb40c, type: 3}
