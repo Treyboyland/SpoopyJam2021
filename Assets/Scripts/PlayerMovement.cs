@@ -20,10 +20,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     PlayerReticle reticle;
 
+    bool shouldJump;
+
     Vector2 force;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         AddForce();
     }
@@ -33,6 +35,13 @@ public class PlayerMovement : MonoBehaviour
         if (force != Vector2.zero)
         {
             body.AddForce(force * speed, ForceMode2D.Impulse);
+        }
+        if (shouldJump)
+        {
+            shouldJump = false;
+            var vector = new Vector2(0, jumpPower);
+            //Debug.LogWarning("Jump Vector: " + vector);
+            body.AddForce(vector, ForceMode2D.Impulse);
         }
     }
 
@@ -47,9 +56,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            var vector = new Vector2(0, jumpPower);
-            //Debug.LogWarning("Jump Vector: " + vector);
-            body.AddForce(vector, ForceMode2D.Impulse);
+            shouldJump = true;
         }
     }
 
@@ -74,5 +81,12 @@ public class PlayerMovement : MonoBehaviour
         var pos = context.ReadValue<Vector2>();
         //Debug.LogWarning("Mouse: " + pos);
         reticle.SetPosition(pos);
+    }
+
+    public void HandleRightStickMove(InputAction.CallbackContext context)
+    {
+        var pos = context.ReadValue<Vector2>();
+        //Debug.LogWarning("Controller: " + pos);
+        reticle.SetPositionController(pos);
     }
 }
