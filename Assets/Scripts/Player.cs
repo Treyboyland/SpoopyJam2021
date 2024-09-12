@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
+    PlayerGameStats gameStats;
+
+    [SerializeField]
     Weapon leftWeapon;
 
 
@@ -43,15 +46,10 @@ public class Player : MonoBehaviour
     PlayerReticle playerReticle;
 
     [SerializeField]
-    uint maxHealth;
-
-    [SerializeField]
     GameEvent onPlayerDamaged;
 
     [SerializeField]
     GameEventGeneric<Vector3> onPlayerDefeated;
-
-    public uint MaxHealth { get { return maxHealth; } set { maxHealth = value; } }
 
     [SerializeField]
     float maxOxygen;
@@ -64,6 +62,8 @@ public class Player : MonoBehaviour
 
     public static Player PlayerInstance { get { return _instance; } }
 
+    Vector3 startingPosition;
+
     private void Awake()
     {
         _instance = this;
@@ -75,12 +75,15 @@ public class Player : MonoBehaviour
         {
             UpdateComponents(rightWeapon, rightWeaponSlot, playerReticle);
         }
+
+        startingPosition = transform.position;
     }
 
 
     private void OnEnable()
     {
-        currentHealth = maxHealth;
+        currentHealth = (uint)gameStats.InGameStats.MaxHealth;
+        transform.position = startingPosition;
     }
 
     void SetWeaponValue(Weapon playerWeapon, Transform weaponSlot, Weapon updatedWeapon)

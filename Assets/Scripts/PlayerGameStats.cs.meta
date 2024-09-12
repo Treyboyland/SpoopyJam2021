@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: 6dcd64cfc1d8b504da802723ae156466
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - startingStats: {fileID: 11400000, guid: 456a1d99b7cb95e44985f8408f9441b7, type: 2}
+  - pistol: {fileID: 11400000, guid: 29c0aec4f229e454b9b7cb2163bbf6e2, type: 2}
+  - shotgun: {fileID: 11400000, guid: aec675db1be5f8e4f99cbda63f5f0718, type: 2}
+  - kunai: {fileID: 11400000, guid: 50f752082784b3240a05189f78bead75, type: 2}
+  - lives: {fileID: 11400000, guid: f5dedf7230685024787b067e1224a3b2, type: 2}
+  - pistolDamage: {fileID: 11400000, guid: edb034479e79bb64392844fa6e6aa622, type: 2}
+  - pistolAmmoCapacity: {fileID: 11400000, guid: fd13623f2ff82174f94ad1fb64ebbddf, type: 2}
+  - pistolReloadSpeed: {fileID: 11400000, guid: de0d09de4d5f94e48abf016482ae446c, type: 2}
+  - shotgunCapacity: {fileID: 11400000, guid: 33714feaf72219d48959af6cbb7d6450, type: 2}
+  - shotgunKnockback: {fileID: 11400000, guid: 9ddfde46272a18f40b7ca7d92074e389, type: 2}
+  - kunaiCount: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
+  - kunaiReloadSpeed: {fileID: 11400000, guid: d998564ec7f741f4cb08c33bc575c560, type: 2}
+  - onRefreshShopCosts: {fileID: 11400000, guid: 8c37cf18202fa8a42bf5a3653dac65c0, type: 2}
+  - onItemBoughtSuccess: {fileID: 11400000, guid: 614b575140e48a8488afed913e91fcf0, type: 2}
+  - onItemBoughtFail: {fileID: 11400000, guid: a2fc16804c14d1145a7a71f35cc15660, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

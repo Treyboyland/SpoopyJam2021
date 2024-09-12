@@ -51,6 +51,12 @@ public class GameEventGeneric<T> : GameEvent
             listener.Response.Invoke();
         }
     }
+
+    public virtual void Invoke(T newVal)
+    {
+        value = newVal;
+        Invoke();
+    }
 }
 
 

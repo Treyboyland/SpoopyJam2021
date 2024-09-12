@@ -19,6 +19,10 @@ public class Projectile : MonoBehaviour
 
     float maxTime;
 
+    float knockBack;
+
+    public float KnockBack { get => knockBack; set => knockBack = value; }
+
     private void Update()
     {
         elapsed += Time.deltaTime;
@@ -43,6 +47,7 @@ public class Projectile : MonoBehaviour
         if (isPlayer && enemy != null)
         {
             enemy.Damage(damage);
+            enemy.KnockBack(dataSO.KnockBack);
         }
         else if (!isPlayer && player != null)
         {

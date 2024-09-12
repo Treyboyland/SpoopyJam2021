@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a621aec579c8341b822e195598adc8, type: 3}
+  m_Name: PlayerStats-Default
+  m_EditorClassIdentifier: 
+  startingLives: 3
+  money: 0
+  leftEquipWeapon: {fileID: 11400000, guid: bf0d8086d0fdcf846b2485bba1a8948e, type: 2}
+  rightEquipWeapon: {fileID: 11400000, guid: bf0d8086d0fdcf846b2485bba1a8948e, type: 2}
+  livesUpgrades: []
+  upgradeCountLives: 0
+  upgradeCountPistolDamage: 0
+  upgradeCountPistolCapacity: 0
+  upgradeCountPistolReloadSpeed: 0
+  upgradeCountShotgunCapacity: 0
+  upgradeCountShotgunKnockback: 0
+  upgradeCountKunaiCount: 0
+  upgradeCountKunaiReloadSpeed: 0
+  livesUpgradeSO: {fileID: 11400000, guid: f5dedf7230685024787b067e1224a3b2, type: 2}
+  pistolDamageUpgradeSO: {fileID: 11400000, guid: edb034479e79bb64392844fa6e6aa622, type: 2}
+  pistolAmmoCapacityUpgradeSO: {fileID: 11400000, guid: fd13623f2ff82174f94ad1fb64ebbddf, type: 2}
+  pistolReloadSpeedUpgradeSO: {fileID: 11400000, guid: de0d09de4d5f94e48abf016482ae446c, type: 2}
+  shotgunCapacityUpgradeSO: {fileID: 11400000, guid: 33714feaf72219d48959af6cbb7d6450, type: 2}
+  shotgunKnockbackUpgradeSO: {fileID: 11400000, guid: 9ddfde46272a18f40b7ca7d92074e389, type: 2}
+  kunaiCountUpgradeSO: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
+  kunaiReloadSpeedUpgradeSO: {fileID: 11400000, guid: d998564ec7f741f4cb08c33bc575c560, type: 2}

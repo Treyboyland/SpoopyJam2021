@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class MasterPool : MonoBehaviour
 {
@@ -49,6 +50,11 @@ public class MasterPool : MonoBehaviour
     {
         foreach (var item in objectsToPool)
         {
+            if (item.MonoBehaviour == null)
+            {
+                Debug.LogWarning($"{gameObject.name}Null item in instantiation list");
+                continue;
+            }
             if (!pool.ContainsKey(item.MonoBehaviour))
             {
                 pool.Add(item.MonoBehaviour, new List<MonoBehaviour>());
@@ -77,5 +83,28 @@ public class MasterPool : MonoBehaviour
         }
 
         return CreateItem(objToGet);
+    }
+
+    public void DisableObjects(MonoBehaviour objToDisable)
+    {
+        if (!pool.ContainsKey(objToDisable))
+        {
+            return;
+        }
+
+        foreach (var item in pool[objToDisable])
+        {
+            item.gameObject.SetActive(false);
+        }
+    }
+
+    public int GetObjectActiveCount(MonoBehaviour objToCheck)
+    {
+        if (!pool.ContainsKey(objToCheck))
+        {
+            return -1;
+        }
+
+        return pool[objToCheck].Where(x => x.gameObject.activeInHierarchy).Count();
     }
 }
