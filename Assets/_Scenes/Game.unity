@@ -856,6 +856,65 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &456722579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 456722580}
+  - component: {fileID: 456722581}
+  m_Layer: 0
+  m_Name: OnSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &456722580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456722579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1852278519}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &456722581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456722579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25df9a8113d0bc84ab0b1145264ce510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: a8cea06e3d39df64c9860c0256885234, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1852278520}
+        m_TargetAssemblyTypeName: EnemyPool, Assembly-CSharp
+        m_MethodName: CreateEnemy
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &471194739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,7 +2282,6 @@ GameObject:
   m_Component:
   - component: {fileID: 926729879}
   - component: {fileID: 926729880}
-  - component: {fileID: 926729881}
   m_Layer: 0
   m_Name: Ghost Spawn
   m_TagString: Untagged
@@ -2265,34 +2323,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: AudioRandomizer, Assembly-CSharp
         m_MethodName: PlaySound
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &926729881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926729878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25df9a8113d0bc84ab0b1145264ce510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: a8cea06e3d39df64c9860c0256885234, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: a20d3dd14e17ab54ca358000bb5c878c, type: 2}
-        m_TargetAssemblyTypeName: MonobehaviourSpawner, Assembly-CSharp
-        m_MethodName: SpawnObject
-        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5029,7 +5059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12e938ec20a2274dab5ad6d2906e787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPoints: 10
+  startingPoints: 50
   pointVariance: {x: 0.9, y: 1.25}
   spawnParameters: {x: -85, y: 85, z: -2, w: 3}
   timeBetweenSpawns: {x: 5, y: 10}
@@ -5052,6 +5082,7 @@ Transform:
   m_Children:
   - {fileID: 140157845}
   - {fileID: 2087622097}
+  - {fileID: 456722580}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
