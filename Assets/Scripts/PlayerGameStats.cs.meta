@@ -19,7 +19,7 @@ MonoImporter:
   - onRefreshShopCosts: {fileID: 11400000, guid: 8c37cf18202fa8a42bf5a3653dac65c0, type: 2}
   - onItemBoughtSuccess: {fileID: 11400000, guid: 614b575140e48a8488afed913e91fcf0, type: 2}
   - onItemBoughtFail: {fileID: 11400000, guid: a2fc16804c14d1145a7a71f35cc15660, type: 2}
-  executionOrder: 0
+  executionOrder: -1
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

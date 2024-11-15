@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 
     public float MaxOxygen { get { return maxOxygen; } set { maxOxygen = value; } }
 
-    uint currentHealth = 0;
+    int currentHealth = 0;
 
     static Player _instance = null;
 
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        currentHealth = (uint)gameStats.InGameStats.MaxHealth;
+        currentHealth = gameStats.InGameStats.MaxHealth;
         transform.position = startingPosition;
     }
 
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Damage(uint damage)
+    public void Damage(int damage)
     {
         if (damage > currentHealth)
         {

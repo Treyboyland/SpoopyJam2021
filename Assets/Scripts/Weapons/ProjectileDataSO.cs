@@ -5,16 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ProjectileData", menuName = "Game/Projectile Data")]
 public class ProjectileDataSO : ScriptableObject
 {
-    [Tooltip("How much damage this does on contact")]
-    [SerializeField]
-    uint damage;
-
-    /// <summary>
-    /// How much damage this does on contact
-    /// </summary>
-    /// <value></value>
-    public uint Damage { get { return damage; } }
-
     [Tooltip("How long the projectile stays alive in seconds")]
     [SerializeField]
     float lifeTime;

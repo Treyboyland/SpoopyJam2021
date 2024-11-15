@@ -7,10 +7,13 @@ using UnityEngine.UI;
 public class UpgradeButton : MonoBehaviour
 {
     [SerializeField]
+    Button button;
+
+    [SerializeField]
     TMP_Text buttonText;
 
     [SerializeField]
-    PlayerUpgradeSO upgradeType;
+    WeaponTypeAndPlayerUpgrade upgradeType;
 
     [SerializeField]
     GameEventPlayerUpgrade upgradeEvent;
@@ -30,7 +33,15 @@ public class UpgradeButton : MonoBehaviour
 
     public void UpdateDescription()
     {
-        buttonText.text = $"Upgrade {upgradeType.UpgradeName}: " +
-            $"{(PlayerGameStats.Instance == null ? -1 : PlayerGameStats.Instance.GetUpgradeCost(upgradeType))}";
+        if (PlayerGameStats.Instance == null)
+        {
+            Debug.LogWarning("Player instance null");
+        }
+        int value = PlayerGameStats.Instance == null ? -1 : PlayerGameStats.Instance.GetUpgradeCost(upgradeType);
+
+        buttonText.text = $"Upgrade {upgradeType.PlayerUpgrade.UpgradeName}: " +
+            $"{(value == -1 ? "SOLD OUT" : value.ToString())}";
+
+        button.interactable = value != -1;
     }
 }

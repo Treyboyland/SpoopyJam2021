@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     GameEvent onEnemyDamaged;
 
-    uint health = 0;
+    int health = 0;
 
 
     public EnemyDataSO EnemyStats { get => dataSO; }
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         health = dataSO.Health;
     }
 
-    public void Damage(uint dmg)
+    public void Damage(int dmg)
     {
         //Debug.LogWarning("Damage " + dmg);
         if (dmg > health)

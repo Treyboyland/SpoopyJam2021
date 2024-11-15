@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: WeapnType-Pistol
   m_EditorClassIdentifier: 
   weaponName: Pistol
+  weaponSprite: {fileID: 21300000, guid: d4f42b8a6e6d52e44b4597ffe3cc7207, type: 3}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60508b6485a3ff24da6f7d583f190090, type: 3}
+  m_Name: ShopData-Misc
+  m_EditorClassIdentifier: 
+  costs:
+  - Upgrade: {fileID: 11400000, guid: f5dedf7230685024787b067e1224a3b2, type: 2}
+    Value: 00000000fa000000f401000064000000c8000000
+  - Upgrade: {fileID: 11400000, guid: 92f49f9e904ef424f881fc4822b11eaf, type: 2}
+    Value: 00000000e8030000c4090000

@@ -8,5 +8,11 @@ public class WeaponTypeSO : ScriptableObject
     [SerializeField]
     string weaponName;
 
+    [SerializeField]
+    Sprite weaponSprite;
+
+
     public string WeaponName => weaponName;
+
+    public Sprite WeaponSprite => weaponSprite;
 }

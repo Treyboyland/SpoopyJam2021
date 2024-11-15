@@ -8,43 +8,8 @@ public class PlayerGameStats : MonoBehaviour
     [SerializeField]
     PlayerStatsSO startingStats;
 
-    [Header("Weapons")]
-
     [SerializeField]
-    WeaponDataSO pistol;
-
-    [SerializeField]
-    WeaponDataSO shotgun;
-
-    [SerializeField]
-    WeaponDataSO kunai;
-
-
-    [Header("Upgrade Types")]
-
-    [SerializeField]
-    PlayerUpgradeSO lives;
-
-    [SerializeField]
-    PlayerUpgradeSO pistolDamage;
-
-    [SerializeField]
-    PlayerUpgradeSO pistolAmmoCapacity;
-
-    [SerializeField]
-    PlayerUpgradeSO pistolReloadSpeed;
-
-    [SerializeField]
-    PlayerUpgradeSO shotgunCapacity;
-
-    [SerializeField]
-    PlayerUpgradeSO shotgunKnockback;
-
-    [SerializeField]
-    PlayerUpgradeSO kunaiCount;
-
-    [SerializeField]
-    PlayerUpgradeSO kunaiReloadSpeed;
+    List<WeaponTypeAndShopData> shops;
 
     [SerializeField]
     GameEvent onRefreshShopCosts;
@@ -78,56 +43,36 @@ public class PlayerGameStats : MonoBehaviour
         inGameStats = startingStats.Duplicate();
     }
 
-    public int GetUpgradeCost(PlayerUpgradeSO upgrade)
+    public int GetUpgradeCost(WeaponTypeAndPlayerUpgrade upgradeData)
     {
-        int upgradeCount = inGameStats.GetUpgradeCountOfType(upgrade);
-        //TODO: This feels very wrong...
-        if (upgrade == lives)
+        return GetUpgradeCost(upgradeData.WeaponType, upgradeData.PlayerUpgrade);
+    }
+
+    public int GetUpgradeCost(WeaponTypeSO weapon, PlayerUpgradeSO upgrade)
+    {
+        int upgradeCount = inGameStats.GetCountOfUpgradeType(weapon, upgrade);
+
+        if (upgradeCount == -1)
         {
-            return inGameStats.LivesUpgrades.GetCostOfUpgrade(upgradeCount);
+            Debug.LogError($"Unknown upgrade: {upgrade.UpgradeName} with type {(weapon != null ? weapon.WeaponName : "NULL")}");
+            return upgradeCount;
         }
 
-        if (upgrade == pistolDamage)
+        upgradeCount++;
+
+        bool hasShop = shops.Where(x => x.WeaponType == weapon).Count() != 0;
+
+        if (hasShop)
         {
-            return pistol.Projectile.GetCostOfUpgrade(upgradeCount);
+            List<int> costs = shops.Where(x => x.WeaponType == weapon).First().ShopData.GetCostsForUpgrade(upgrade);
+
+            return upgradeCount < costs.Count && upgradeCount >= 0 ? costs[upgradeCount] : -1;
         }
 
-        if (upgrade == pistolAmmoCapacity)
-        {
-            return pistol.AmmoCapacity.GetCostOfUpgrade(upgradeCount);
-        }
-
-        if (upgrade == pistolReloadSpeed)
-        {
-            return pistol.ReloadTime.GetCostOfUpgrade(upgradeCount);
-        }
-
-        if (upgrade == shotgunCapacity)
-        {
-            return shotgun.AmmoCapacity.GetCostOfUpgrade(upgradeCount);
-        }
-
-        if (upgrade == shotgunKnockback)
-        {
-            return shotgun.KnockBack.GetCostOfUpgrade(upgradeCount);
-        }
-
-        if (upgrade == kunaiCount)
-        {
-            return kunai.ProjectileSpawns.GetCostOfUpgrade(upgradeCount);
-        }
-
-        if (upgrade == kunaiReloadSpeed)
-        {
-            return kunai.ReloadTime.GetCostOfUpgrade(upgradeCount);
-        }
-
-
-        Debug.LogError($"Unknown upgrade: {upgrade.UpgradeName}");
         return -1;
     }
 
-    public void AttemptUpgrade(PlayerUpgradeSO upgrade)
+    public void AttemptUpgrade(WeaponTypeAndPlayerUpgrade upgrade)
     {
         int cost = GetUpgradeCost(upgrade);
 

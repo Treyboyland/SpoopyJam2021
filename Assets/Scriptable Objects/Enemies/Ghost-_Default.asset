@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ghost-_Default
   m_EditorClassIdentifier: 
   spawnCost: 1
-  health: 50
+  health: 3
   canBeKnockedBack: 0
   damage: 1
   maxSpeed: 1.5

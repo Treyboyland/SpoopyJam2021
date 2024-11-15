@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     bool isPlayer;
 
-    uint damage;
+    int damage;
 
     float elapsed = 0;
 
@@ -22,6 +22,7 @@ public class Projectile : MonoBehaviour
     float knockBack;
 
     public float KnockBack { get => knockBack; set => knockBack = value; }
+    public int Damage { get => damage; set => damage = value; }
 
     private void Update()
     {
@@ -35,7 +36,6 @@ public class Projectile : MonoBehaviour
     private void OnEnable()
     {
         elapsed = 0;
-        damage = dataSO.Damage;
         maxTime = dataSO.LifeTime;
         body.velocity = transform.up * dataSO.Speed;
     }

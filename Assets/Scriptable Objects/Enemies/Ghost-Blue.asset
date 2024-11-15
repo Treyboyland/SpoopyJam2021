@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ghost-Blue
   m_EditorClassIdentifier: 
   spawnCost: 2
-  health: 100
+  health: 6
   canBeKnockedBack: 0
   damage: 1
   maxSpeed: 1

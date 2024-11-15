@@ -160,7 +160,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8386686317291185719}
   - component: {fileID: 8386686317291185718}
-  - component: {fileID: 8386686317291185716}
   - component: {fileID: 5368827080556685968}
   - component: {fileID: 17239784299982428}
   m_Layer: 6
@@ -179,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 8386686317291185737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.68, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8386686316313495193}
   - {fileID: 64688635554909312}
@@ -241,33 +240,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8386686317291185716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8386686317291185737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff05bb124c4be1a4ea80d1d12841dcf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlayer: 0
-  bullet: {fileID: 8413677415729128128, guid: 8057e642693e24f4e8ee52a6d9c3de23, type: 3}
-  spawnPoints:
-  - Transform: {fileID: 8386686316313495193}
-    Rotation: 0
-  - Transform: {fileID: 64688635554909312}
-    Rotation: 15
-  - Transform: {fileID: 841137253565868377}
-    Rotation: -15
-  - Transform: {fileID: 2849869766777458237}
-    Rotation: 30
-  - Transform: {fileID: 5611968692238654701}
-    Rotation: -30
-  - Transform: {fileID: 1389492983323887345}
-    Rotation: 10
 --- !u!114 &5368827080556685968
 MonoBehaviour:
   m_ObjectHideFlags: 0
