@@ -62,6 +62,8 @@ public class Player : MonoBehaviour
 
     public static Player PlayerInstance { get { return _instance; } }
 
+    public bool IsDead => !gameObject.activeInHierarchy;
+
     Vector3 startingPosition;
 
     private void Awake()

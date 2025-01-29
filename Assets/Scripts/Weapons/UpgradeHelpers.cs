@@ -69,11 +69,13 @@ public static class ListRectifiers
             var newObj = (List<float>)obj;
             return newObj[index];
         }
-        else if (t == typeof(ListFloatsAsString))
+        else if (t == typeof(List<ListFloatsAsString>))
         {
-            var newObj = (ListFloatsAsString)obj;
-            return newObj.GetValues()[index];
+            var newObj = (List<ListFloatsAsString>)obj;
+            return newObj[index];
         }
+
+        Debug.LogError($"Type {t.Name} not valid selector of index");
 
         return null;
     }

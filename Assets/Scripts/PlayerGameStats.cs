@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerGameStats : MonoBehaviour
 {
+    [Tooltip("Starting values to be populated in game")]
     [SerializeField]
     PlayerStatsSO startingStats;
 
@@ -26,6 +27,10 @@ public class PlayerGameStats : MonoBehaviour
 
     public static PlayerGameStats Instance => _instance;
 
+    ///<summary>
+    /// Player's current stats, that should change based on upgrades 
+    /// </summary>
+    /// <value></value>
     public PlayerStatsSO InGameStats { get => inGameStats; }
 
     /// <summary>
@@ -91,4 +96,9 @@ public class PlayerGameStats : MonoBehaviour
         }
     }
 
+    public void AddMoney(int amount)
+    {
+        amount *= inGameStats.MoneyMultiplier;
+        inGameStats.Money += amount;
+    }
 }

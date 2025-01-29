@@ -46,7 +46,21 @@ public class Weapon : MonoBehaviour
     }
 
 
-    protected bool CanFire { get { return currentAmmo != 0; } }
+    protected bool CanFire
+    {
+        get
+        {
+            if (isPlayer)
+            {
+                return currentAmmo != 0 && Player.PlayerInstance != null && !Player.PlayerInstance.IsDead;
+            }
+            else
+            {
+                return currentAmmo != 0;
+            }
+
+        }
+    }
 
     public SpriteRenderer WeaponSprite { get => weaponSprite; set => weaponSprite = value; }
     public Projectile Bullet { get => bullet; set => bullet = value; }

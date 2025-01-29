@@ -49,6 +49,6 @@ public class WeaponDataFinder : ScriptableObject
     {
         var data = weaponData.GetUpgrade(fireAngles);
         //This was a float list
-        return data != null ? ((List<float>)data) : new List<float>();
+        return data != null ? ((ListFloatsAsString)data).GetValues() : new List<float>();
     }
 }

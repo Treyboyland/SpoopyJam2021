@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2af73110cc1a94c94d90fea3ce1c76, type: 3}
-  m_Name: Ghost-_Default
+  m_Script: {fileID: 11500000, guid: 919d11f6a7ae40346b377a718d636960, type: 3}
+  m_Name: GameEvent-OnTakeScreenshot
   m_EditorClassIdentifier: 
-  spawnCost: 1
-  health: 3
-  canBeKnockedBack: 1
-  damage: 1
-  maxSpeed: 1.5
-  impulseForce: 20
-  moneyAwarded: 25

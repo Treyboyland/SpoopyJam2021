@@ -16,7 +16,7 @@ public class WeaponLevelDataSO : ScriptableObject
     List<UpgradeAndValue<List<float>>> floatUpgrades;
 
     [SerializeField]
-    List<UpgradeAndValue<ListFloatsAsString>> floatListUpgrades;
+    List<UpgradeAndValue<List<ListFloatsAsString>>> floatListUpgrades;
 
     public WeaponTypeSO WeaponType { get => weaponType; }
 
@@ -24,7 +24,7 @@ public class WeaponLevelDataSO : ScriptableObject
     {
         bool intHas = intUpgrades.Where(x => x.Upgrade == upgrade).Any();
         bool floatHas = floatUpgrades.Where(x => x.Upgrade == upgrade).Any();
-        bool floatListHas = floatUpgrades.Where(x => x.Upgrade == upgrade).Any();
+        bool floatListHas = floatListUpgrades.Where(x => x.Upgrade == upgrade).Any();
 
         if (intHas)
         {
@@ -41,6 +41,7 @@ public class WeaponLevelDataSO : ScriptableObject
             return floatListUpgrades.Where(x => x.Upgrade == upgrade).First().Value;
         }
 
+        Debug.LogError($"Upgrade {upgrade.UpgradeName} not found");
         return null;
     }
 }

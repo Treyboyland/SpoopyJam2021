@@ -120,5 +120,9 @@ public class WeaponDataSO : ScriptableObject
                 floatListUpgrades.Add(new UpgradeAndValue<ListFloatsAsString>() { Upgrade = upgrade, Value = (ListFloatsAsString)value });
             }
         }
+        else
+        {
+            Debug.LogError($"Type: \"{t.Name}\" not in the list of acceptable stuff");
+        }
     }
 }

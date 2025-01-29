@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
     EnemyMove movementScript;
 
     [SerializeField]
+    GameEventGeneric<int> onAwardMoney;
+
+    [SerializeField]
     GameEventGeneric<Vector3> onEnemyDefeated;
 
     [SerializeField]
@@ -41,10 +44,16 @@ public class Enemy : MonoBehaviour
 
         if (health == 0)
         {
-            onEnemyDefeated.Value = transform.position;
-            onEnemyDefeated.Invoke();
-            gameObject.SetActive(false);
+            DefeatEnemy();
         }
+    }
+
+    public void DefeatEnemy()
+    {
+        onEnemyDefeated.Value = transform.position;
+        onEnemyDefeated.Invoke();
+        onAwardMoney.Invoke(dataSO.MoneyAwarded);
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

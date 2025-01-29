@@ -11,6 +11,9 @@ public class Projectile : MonoBehaviour
     Rigidbody2D body;
 
     [SerializeField]
+    GameEventProjectile onFired;
+
+    [SerializeField]
     bool isPlayer;
 
     int damage;
@@ -38,6 +41,10 @@ public class Projectile : MonoBehaviour
         elapsed = 0;
         maxTime = dataSO.LifeTime;
         body.velocity = transform.up * dataSO.Speed;
+        if (gameObject.activeInHierarchy && onFired != null)
+        {
+            onFired.Invoke(this);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

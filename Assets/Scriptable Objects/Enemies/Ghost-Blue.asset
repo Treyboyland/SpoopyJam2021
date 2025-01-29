@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCost: 2
   health: 6
-  canBeKnockedBack: 0
+  canBeKnockedBack: 1
   damage: 1
   maxSpeed: 1
   impulseForce: 20

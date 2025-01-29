@@ -36,5 +36,13 @@ MonoBehaviour:
   floatListUpgrades:
   - Upgrade: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
     Value:
-      Delimiter: ','
+    - Delimiter: ','
       Value: 0,-20,20
+    - Delimiter: ','
+      Value: 0,-20,20,-30,30
+    - Delimiter: ','
+      Value: 0,-20,20,-30,30,-40,40
+    - Delimiter: ','
+      Value: 0,-20,20,-30,30,-40,40,-50,50
+    - Delimiter: ','
+      Value: 0,-20,20,-30,30,-40,40,-50,50,-60,60
