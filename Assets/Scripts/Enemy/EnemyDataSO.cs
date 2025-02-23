@@ -15,13 +15,16 @@ public class EnemyDataSO : ScriptableObject
     bool canBeKnockedBack;
 
     [SerializeField]
+    float knockBackTime;
+
+    [SerializeField]
     int damage;
 
     [SerializeField]
     float maxSpeed;
 
     [SerializeField]
-    float impulseForce;
+    float speed;
 
     [SerializeField]
     int moneyAwarded;
@@ -30,7 +33,9 @@ public class EnemyDataSO : ScriptableObject
     public bool CanBeKnockedBack { get => canBeKnockedBack; }
     public virtual int Damage { get { return damage; } }
     public virtual float MaxSpeed { get { return maxSpeed; } }
-    public virtual float ImpulseForce { get { return impulseForce; } }
+    public virtual float Speed { get { return speed; } }
+
+    public virtual float KnockBackTime { get => knockBackTime; }
 
     public int MoneyAwarded { get => moneyAwarded; }
     public int SpawnCost { get => spawnCost; }

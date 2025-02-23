@@ -10,12 +10,6 @@ public abstract class EnemyMove : MonoBehaviour
     [SerializeField]
     protected Rigidbody2D body2D;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     protected void LimitTopSpeed()
     {
         if (body2D.velocity.magnitude > enemy.EnemyStats.MaxSpeed)
@@ -26,23 +20,7 @@ public abstract class EnemyMove : MonoBehaviour
     }
 
 
-    protected void MoveEnemy(float amount, bool towardsPlayer)
-    {
-        if (Player.PlayerInstance == null)
-        {
-            //TODO: Also when player is dead?
-            return;
-        }
-        var playerPos = Player.PlayerInstance.transform.position;
+    protected abstract void MoveEnemy(float amount, bool towardsPlayer);
 
-        var movementVector = towardsPlayer ? (playerPos - transform.position).normalized
-            : (transform.position - playerPos).normalized;
-
-        body2D.AddForce(movementVector * amount, ForceMode2D.Impulse);
-    }
-
-    public void KnockBack(float force)
-    {
-        MoveEnemy(force, false);
-    }
+    public abstract void KnockBack(float force);
 }

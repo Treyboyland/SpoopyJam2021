@@ -29,14 +29,19 @@ public class PlayerReticle : MonoBehaviour
     {
         Vector3 mousePos = new Vector3(mousePosition.x, mousePosition.y, player.transform.position.z - gameCamera.transform.position.z);
         var worldPos = gameCamera.ScreenToWorldPoint(mousePos);
-        
+
         //Debug.LogWarning("Reticle: " + worldPos);
         transform.position = worldPos;
     }
 
     public void SetPositionController(Vector2 rightStickPos)
     {
-        Vector3 newPos = rightStickPos * radius;
+        if (rightStickPos == Vector2.zero)
+        {
+            return;
+        }
+
+        Vector3 newPos = rightStickPos.normalized * radius;
         newPos.z = 0;
         transform.position = newPos + player.transform.position;
     }

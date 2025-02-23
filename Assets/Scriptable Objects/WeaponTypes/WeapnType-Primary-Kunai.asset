@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d13953cb7bd7e0745bcc7a09bafe02ce, type: 3}
-  m_Name: WeapnType-Kunai
+  m_Name: WeapnType-Primary-Kunai
   m_EditorClassIdentifier: 
   weaponName: Kunai
   weaponSprite: {fileID: 21300000, guid: e73a5157eb5fb4c4db54c296b3c38739, type: 3}

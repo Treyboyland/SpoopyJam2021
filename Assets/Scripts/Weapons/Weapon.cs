@@ -24,17 +24,20 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     GameEvent onWeaponFired;
 
+    [SerializeField]
+    GameEventWeaponProgress onEnergyProgressUpdated;
+
     int damage;
+    float energyRecoveryPerSecond;
+    float energyPerShot;
+    float maxEnergy;
+    float secondsBetweenShots;
 
-    int ammoCapacity;
+    float currentEnergy;
+    float secondsSinceLastShot;
 
-    int currentAmmo;
+    bool shouldFireEvent;
 
-    float reloadTime;
-
-    float elapsed;
-
-    bool isReloading;
     private float knockBack;
 
     [Serializable]
@@ -52,11 +55,11 @@ public class Weapon : MonoBehaviour
         {
             if (isPlayer)
             {
-                return currentAmmo != 0 && Player.PlayerInstance != null && !Player.PlayerInstance.IsDead;
+                return currentEnergy >= energyPerShot && secondsSinceLastShot >= secondsBetweenShots && Player.PlayerInstance != null && !Player.PlayerInstance.IsDead;
             }
             else
             {
-                return currentAmmo != 0;
+                return currentEnergy >= energyPerShot && secondsSinceLastShot >= secondsBetweenShots;
             }
 
         }
@@ -65,21 +68,51 @@ public class Weapon : MonoBehaviour
     public SpriteRenderer WeaponSprite { get => weaponSprite; set => weaponSprite = value; }
     public Projectile Bullet { get => bullet; set => bullet = value; }
     public Vector3 ProjectileOrigin { get => projectileOrigin; set => projectileOrigin = value; }
-    public int AmmoCapacity { get => ammoCapacity; set => ammoCapacity = value; }
+
+    public GameEvent WeaponEvent { get => weaponEvent; set => weaponEvent = value; }
 
     public WeaponTypeSO WeaponType { get; set; }
 
     public List<float> FireAngles { get; set; }
 
     public int Damage { get => damage; set => damage = value; }
-    public float ReloadTime { get => reloadTime; set => reloadTime = value; }
     public float KnockBack { get => knockBack; set => knockBack = value; }
+    public float EnergyRecoveryPerSecond { get => energyRecoveryPerSecond; set => energyRecoveryPerSecond = value; }
+    public float EnergyPerShot { get => energyPerShot; set => energyPerShot = value; }
+    public float MaxEnergy { get => maxEnergy; set => maxEnergy = value; }
+    public float SecondsBetweenShots { get => secondsBetweenShots; set => secondsBetweenShots = value; }
+
+    float energyProgress = 0;
+    private GameEvent weaponEvent;
+
+    public float EnergyProgress
+    {
+        get => energyProgress; set
+        {
+            energyProgress = value;
+            onEnergyProgressUpdated.Invoke(new WeaponProgress() { Progress = energyProgress, CanFire = currentEnergy >= energyPerShot });
+        }
+    }
+
+    ///  <summary>
+    /// If true, fires event instead of projectile. Event handler should decrement energy
+    /// </summary>
+    /// <value></value>
+    public bool ShouldFireEvent { get => shouldFireEvent; set => shouldFireEvent = value; }
 
     public virtual void Fire()
     {
         if (CanFire)
         {
-            FireWeapon();
+            if (shouldFireEvent)
+            {
+                weaponEvent.Invoke();
+            }
+            else
+            {
+                DecrementWeaponEnergyForShot();
+                FireWeapon();
+            }
         }
     }
 
@@ -88,28 +121,22 @@ public class Weapon : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (isReloading)
-        {
-            elapsed += Time.deltaTime;
-        }
+        currentEnergy = Mathf.Max(0, Mathf.Min(currentEnergy + energyRecoveryPerSecond * Time.deltaTime, maxEnergy));
+        EnergyProgress = currentEnergy / maxEnergy;
+        secondsSinceLastShot += Time.deltaTime;
+        //Debug.LogWarning($"Weapon {CanFire}: {energyPerShot}/{currentEnergy}, {secondsSinceLastShot}/{secondsBetweenShots}");
+    }
 
-        if (currentAmmo == 0 && !isReloading)
-        {
-            isReloading = true;
-        }
-
-        if (elapsed >= reloadTime)
-        {
-            elapsed = 0;
-            isReloading = false;
-            currentAmmo = ammoCapacity;
-        }
+    public void DecrementWeaponEnergyForShot()
+    {
+        secondsSinceLastShot = 0;
+        currentEnergy -= energyPerShot;
+        EnergyProgress = currentEnergy / maxEnergy;
     }
 
 
-    protected void FireWeapon()
+    public virtual void FireWeapon()
     {
-        currentAmmo--;
         foreach (var item in FireAngles)
         {
             var bulletObj = MasterPool.Pool.GetObject(bullet) as Projectile;
@@ -117,6 +144,7 @@ public class Weapon : MonoBehaviour
             bulletObj.transform.up = transform.up;
             bulletObj.transform.rotation *= Quaternion.AngleAxis(item, Vector3.forward);
             bulletObj.Damage = Damage;
+            bulletObj.KnockBack = KnockBack;
             bulletObj.gameObject.SetActive(true);
         }
 

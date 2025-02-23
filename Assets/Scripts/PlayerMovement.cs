@@ -15,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
     float speed;
 
     [SerializeField]
+    float leapSpeed;
+
+    [SerializeField]
+    float leapSeconds;
+
+    [SerializeField]
     float jumpPower;
 
     [SerializeField]
@@ -24,6 +30,28 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 force;
 
+    bool shouldFireRight;
+
+    bool shouldFireLeft;
+
+    float leapSecondsElapsed;
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        leapSecondsElapsed = Mathf.Max(leapSecondsElapsed - Time.deltaTime, 0);
+        if (shouldFireRight)
+        {
+            player.RightWeapon.Fire();
+        }
+        if (shouldFireLeft)
+        {
+            player.LeftWeapon.Fire();
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -32,24 +60,28 @@ public class PlayerMovement : MonoBehaviour
 
     void AddForce()
     {
-        if (force != Vector2.zero)
+        if (leapSeconds == 0 && force != Vector2.zero)
         {
             body.AddForce(force * speed, ForceMode2D.Impulse);
         }
-        if (shouldJump)
+        else if (leapSeconds > 0 && force != Vector2.zero)
         {
-            shouldJump = false;
-            var vector = new Vector2(0, jumpPower);
-            //Debug.LogWarning("Jump Vector: " + vector);
-            body.AddForce(vector, ForceMode2D.Impulse);
+            body.velocity = force.normalized * leapSpeed;
         }
+        // if (shouldJump)
+        // {
+        //     shouldJump = false;
+        //     var vector = new Vector2(0, jumpPower);
+        //     //Debug.LogWarning("Jump Vector: " + vector);
+        //     body.AddForce(vector, ForceMode2D.Impulse);
+        // }
     }
 
     public void HandleMove(InputAction.CallbackContext context)
     {
         force = context.ReadValue<Vector2>();
         //Debug.LogWarning("Movement Vector: " + force);
-        force.y = force.y > 0 ? 0 : force.y;
+        //force.y = force.y > 0 ? 0 : force.y;
     }
 
     public void HandleJump(InputAction.CallbackContext context)
@@ -64,7 +96,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.started)
         {
-            player.LeftWeapon.Fire();
+            shouldFireLeft = true;
+        }
+        else if (context.canceled)
+        {
+            shouldFireLeft = false;
         }
     }
 
@@ -72,7 +108,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.started)
         {
-            player.RightWeapon.Fire();
+            shouldFireRight = true;
+        }
+        else if (context.canceled)
+        {
+            shouldFireRight = false;
         }
     }
 

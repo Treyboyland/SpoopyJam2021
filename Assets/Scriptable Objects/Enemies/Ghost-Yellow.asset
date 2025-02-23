@@ -15,7 +15,8 @@ MonoBehaviour:
   spawnCost: 5
   health: 2
   canBeKnockedBack: 1
+  knockBackTime: 0.2
   damage: 1
   maxSpeed: 3
-  impulseForce: 20
+  speed: 3
   moneyAwarded: 100

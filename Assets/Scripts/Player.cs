@@ -49,12 +49,17 @@ public class Player : MonoBehaviour
     GameEvent onPlayerDamaged;
 
     [SerializeField]
+    GameEventInt onLivesUpdated;
+
+    [SerializeField]
     GameEventGeneric<Vector3> onPlayerDefeated;
 
     [SerializeField]
     float maxOxygen;
 
     public float MaxOxygen { get { return maxOxygen; } set { maxOxygen = value; } }
+
+    public bool IsInvincible => invincibleTime > 0;
 
     int currentHealth = 0;
 
@@ -65,6 +70,8 @@ public class Player : MonoBehaviour
     public bool IsDead => !gameObject.activeInHierarchy;
 
     Vector3 startingPosition;
+
+    float invincibleTime = 0;
 
     private void Awake()
     {
@@ -85,7 +92,16 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         currentHealth = gameStats.InGameStats.MaxHealth;
+        onLivesUpdated.Invoke(currentHealth);
         transform.position = startingPosition;
+    }
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        invincibleTime = Mathf.Max(invincibleTime - Time.deltaTime, 0);
     }
 
     void SetWeaponValue(Weapon playerWeapon, Transform weaponSlot, Weapon updatedWeapon)
@@ -125,9 +141,8 @@ public class Player : MonoBehaviour
         else
         {
             currentHealth -= damage;
+            onLivesUpdated.Invoke(currentHealth);
         }
-
-        onPlayerDamaged.Invoke();
 
         if (currentHealth == 0)
         {
@@ -135,5 +150,28 @@ public class Player : MonoBehaviour
             onPlayerDefeated.Invoke();
             gameObject.SetActive(false);
         }
+        else
+        {
+            onPlayerDamaged.Invoke();
+        }
+    }
+
+    /// <summary>
+    /// Sent when an incoming collider makes contact with this object's
+    /// collider (2D physics only).
+    /// </summary>
+    /// <param name="other">The Collision2D data associated with this collision.</param>
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        var enemy = other.gameObject.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            Damage(enemy.EnemyStats.Damage);
+        }
+    }
+
+    public void AddInvincibilityTime(float amount)
+    {
+        invincibleTime += amount;
     }
 }

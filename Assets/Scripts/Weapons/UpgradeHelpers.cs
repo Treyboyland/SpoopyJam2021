@@ -52,9 +52,21 @@ public struct WeaponTypeAndPlayerUpgrade
     public PlayerUpgradeSO PlayerUpgrade;
 }
 
+[Serializable]
+public struct WeaponProgress
+{
+    public float Progress;
+    public bool CanFire;
+}
 
 public static class ListRectifiers
 {
+    /// <summary>
+    /// Returns an index of an item into lists of different types
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="index"></param>
+    /// <returns></returns>
     public static object GetAtIndexOfObjectList(this object obj, int index)
     {
         Type t = obj.GetType();

@@ -15,4 +15,4 @@ MonoBehaviour:
   lifeTime: 1
   isPiercing: 0
   speed: 30
-  knockBack: 2000
+  knockBack: 1

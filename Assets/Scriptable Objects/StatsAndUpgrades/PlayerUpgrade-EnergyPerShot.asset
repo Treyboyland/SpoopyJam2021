@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d13953cb7bd7e0745bcc7a09bafe02ce, type: 3}
-  m_Name: WeapnType-Pistol
+  m_Script: {fileID: 11500000, guid: 14a8f97ed39162541a8f5eedba728878, type: 3}
+  m_Name: PlayerUpgrade-EnergyPerShot
   m_EditorClassIdentifier: 
-  weaponName: Pistol
-  weaponSprite: {fileID: 21300000, guid: d4f42b8a6e6d52e44b4597ffe3cc7207, type: 3}
+  upgradeName: Energy Per Shot

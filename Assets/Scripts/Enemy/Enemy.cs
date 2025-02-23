@@ -56,23 +56,23 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        var player = other.gameObject.GetComponent<Player>();
-        if (player != null)
-        {
-            player.Damage(dataSO.Damage);
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     var player = other.gameObject.GetComponent<Player>();
+    //     if (player != null)
+    //     {
+    //         player.Damage(dataSO.Damage);
+    //     }
+    // }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        var player = other.gameObject.GetComponent<Player>();
-        if (player != null)
-        {
-            player.Damage(dataSO.Damage);
-        }
-    }
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     var player = other.gameObject.GetComponent<Player>();
+    //     if (player != null)
+    //     {
+    //         player.Damage(dataSO.Damage);
+    //     }
+    // }
 
     public void KnockBack(float force)
     {

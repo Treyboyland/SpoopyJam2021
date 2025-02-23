@@ -16,6 +16,13 @@ public class WeaponDataSO : ScriptableObject
     [SerializeField]
     Vector3 projectileOrigin;
 
+    [Tooltip("If the weapon should fire an event instead of projectiles")]
+    [SerializeField]
+    bool firesEventInstead;
+
+    [SerializeField]
+    GameEvent eventToFire;
+
     [SerializeField]
     List<UpgradeAndValue<int>> intUpgrades;
 

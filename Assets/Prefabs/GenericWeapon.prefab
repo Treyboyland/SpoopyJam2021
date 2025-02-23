@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reticle: {fileID: 0}
+  weaponSprite: {fileID: 6054570044842857545}
 --- !u!1 &6054570045809341671
 GameObject:
   m_ObjectHideFlags: 0

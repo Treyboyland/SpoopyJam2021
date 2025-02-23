@@ -7,6 +7,9 @@ public class ReticleTracker : MonoBehaviour
     [SerializeField]
     PlayerReticle reticle;
 
+    [SerializeField]
+    SpriteRenderer weaponSprite;
+
     public PlayerReticle Reticle { get { return reticle; } set { reticle = value; } }
 
     const float SPRITE_CORRECTION_ANGLE = -90;
@@ -24,6 +27,7 @@ public class ReticleTracker : MonoBehaviour
         {
             var pos = reticle.transform.position - transform.position;
             float angle = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg + SPRITE_CORRECTION_ANGLE;
+            weaponSprite.flipX = (angle + 360) % 360 > 180;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }

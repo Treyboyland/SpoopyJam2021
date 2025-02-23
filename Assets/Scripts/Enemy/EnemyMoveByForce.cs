@@ -16,6 +16,26 @@ public class EnemyMoveByForce : EnemyMove
 
     void MoveTowardsPlayer()
     {
-        MoveEnemy(enemy.EnemyStats.ImpulseForce, true);
+        MoveEnemy(enemy.EnemyStats.Speed, true);
+    }
+
+    public override void KnockBack(float force)
+    {
+        MoveEnemy(force, false);
+    }
+
+    protected override void MoveEnemy(float amount, bool towardsPlayer)
+    {
+        if (Player.PlayerInstance == null || Player.PlayerInstance.IsDead)
+        {
+            //TODO: Also when player is dead?
+            return;
+        }
+        var playerPos = Player.PlayerInstance.transform.position;
+
+        var movementVector = towardsPlayer ? (playerPos - transform.position).normalized
+            : (transform.position - playerPos).normalized;
+
+        body2D.AddForce(movementVector * amount, ForceMode2D.Impulse);
     }
 }

@@ -17,3 +17,7 @@ MonoBehaviour:
   damage: {fileID: 11400000, guid: edb034479e79bb64392844fa6e6aa622, type: 2}
   knockBack: {fileID: 11400000, guid: 9ddfde46272a18f40b7ca7d92074e389, type: 2}
   fireAngles: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
+  energyRecoveryPerSecond: {fileID: 11400000, guid: 8c9afe661d4987640af22ed510144146, type: 2}
+  energyPerShot: {fileID: 11400000, guid: e9401a9765de2d343946faf453af916e, type: 2}
+  maxEnergy: {fileID: 11400000, guid: 8f2a3c5c3cb342e48bf2864630448ad9, type: 2}
+  secondsBetweenShots: {fileID: 11400000, guid: 1df7faadb7594944f814a0b533007f65, type: 2}

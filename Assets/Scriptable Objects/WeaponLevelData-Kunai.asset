@@ -21,11 +21,11 @@ MonoBehaviour:
   floatUpgrades:
   - Upgrade: {fileID: 11400000, guid: 9ddfde46272a18f40b7ca7d92074e389, type: 2}
     Value:
-    - 10
-    - 20
-    - 30
-    - 40
-    - 50
+    - 0.25
+    - 0.25
+    - 0.25
+    - 0.25
+    - 0.25
   - Upgrade: {fileID: 11400000, guid: d998564ec7f741f4cb08c33bc575c560, type: 2}
     Value:
     - 1
@@ -33,6 +33,34 @@ MonoBehaviour:
     - 0.5
     - 0.25
     - 0.1
+  - Upgrade: {fileID: 11400000, guid: e9401a9765de2d343946faf453af916e, type: 2}
+    Value:
+    - 30
+    - 20
+    - 15
+    - 10
+    - 5
+  - Upgrade: {fileID: 11400000, guid: 1df7faadb7594944f814a0b533007f65, type: 2}
+    Value:
+    - 0.5
+    - 0.3
+    - 0.15
+    - 0.1
+    - 0.05
+  - Upgrade: {fileID: 11400000, guid: 8f2a3c5c3cb342e48bf2864630448ad9, type: 2}
+    Value:
+    - 100
+    - 200
+    - 500
+    - 1000
+    - 2000
+  - Upgrade: {fileID: 11400000, guid: 8c9afe661d4987640af22ed510144146, type: 2}
+    Value:
+    - 10
+    - 20
+    - 40
+    - 80
+    - 100
   floatListUpgrades:
   - Upgrade: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
     Value:
