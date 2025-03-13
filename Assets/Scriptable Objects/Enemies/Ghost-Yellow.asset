@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2af73110cc1a94c94d90fea3ce1c76, type: 3}
   m_Name: Ghost-Yellow
   m_EditorClassIdentifier: 
-  spawnCost: 5
+  spawnCost: 10
   health: 2
   canBeKnockedBack: 1
   knockBackTime: 0.2
   damage: 1
   maxSpeed: 3
-  speed: 3
+  speed: 6
   moneyAwarded: 100

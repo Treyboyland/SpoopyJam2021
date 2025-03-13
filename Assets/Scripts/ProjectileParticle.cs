@@ -15,6 +15,14 @@ public class ProjectileParticle : MonoBehaviour
 
     }
 
+    void OnEnable()
+    {
+        if (Projectile != null)
+        {
+            transform.position = Projectile.transform.position;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -23,6 +31,8 @@ public class ProjectileParticle : MonoBehaviour
             gameObject.SetActive(false);
             return;
         }
+
+        transform.position = Projectile.transform.position;
 
         if (Projectile.gameObject.activeInHierarchy && !particle.isPlaying)
         {

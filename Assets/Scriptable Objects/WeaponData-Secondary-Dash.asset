@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ba844b7a58cbf439c838f092cdddd8, type: 3}
   m_Name: WeaponData-Secondary-Dash
   m_EditorClassIdentifier: 
-  weaponType: {fileID: 11400000, guid: 2315c07fa1aca6140914cfc92e147f72, type: 2}
-  projectile: {fileID: 8413677415729128128, guid: 8057e642693e24f4e8ee52a6d9c3de23, type: 3}
+  weaponType: {fileID: 11400000, guid: c9a511e815c22a04896ae647e46bdfca, type: 2}
+  projectile: {fileID: 0}
   projectileOrigin: {x: 0, y: 0, z: 0}
+  weaponFiredEvent: {fileID: 0}
+  firesEventInstead: 1
+  eventToFire: {fileID: 11400000, guid: ae6c310aa13f1a844965ec5583370502, type: 2}
   intUpgrades:
   - Upgrade: {fileID: 11400000, guid: fd13623f2ff82174f94ad1fb64ebbddf, type: 2}
     Value: 0
@@ -38,3 +41,4 @@ MonoBehaviour:
     Value:
       Delimiter: ','
       Value: 0
+  WeaponFiredEvent: {fileID: 0}

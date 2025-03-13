@@ -34,3 +34,12 @@ public static class VectorExtensions
         return new Vector2(x.Randomize(), y.Randomize());
     }
 }
+
+
+public static class FloatExtensions
+{
+    public static Vector3 ScaleVector(this float x)
+    {
+        return new Vector3(x, x, x);
+    }
+}

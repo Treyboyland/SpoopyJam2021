@@ -35,15 +35,4 @@ public class ProjectileDataSO : ScriptableObject
     /// </summary>
     /// <value></value>
     public float Speed { get { return speed; } }
-
-    [Tooltip("How hard this particle knocks the ghost back on hit")]
-    [SerializeField]
-    float knockBack;
-
-    /// <summary>
-    /// How hard this particle knocks the ghost back on hit
-    /// </summary>
-    /// <value></value>
-    public float KnockBack { get { return knockBack; } }
-
 }

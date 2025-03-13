@@ -18,15 +18,12 @@ public class PlayerMovement : MonoBehaviour
     float leapSpeed;
 
     [SerializeField]
-    float leapSeconds;
-
-    [SerializeField]
     float jumpPower;
 
     [SerializeField]
     PlayerReticle reticle;
 
-    bool shouldJump;
+    //bool shouldJump;
 
     Vector2 force;
 
@@ -60,11 +57,11 @@ public class PlayerMovement : MonoBehaviour
 
     void AddForce()
     {
-        if (leapSeconds == 0 && force != Vector2.zero)
+        if (leapSecondsElapsed == 0 && force != Vector2.zero)
         {
             body.AddForce(force * speed, ForceMode2D.Impulse);
         }
-        else if (leapSeconds > 0 && force != Vector2.zero)
+        else if (leapSecondsElapsed > 0 && force != Vector2.zero)
         {
             body.velocity = force.normalized * leapSpeed;
         }
@@ -88,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            shouldJump = true;
+            //shouldJump = true;
         }
     }
 
@@ -128,5 +125,10 @@ public class PlayerMovement : MonoBehaviour
         var pos = context.ReadValue<Vector2>();
         //Debug.LogWarning("Controller: " + pos);
         reticle.SetPositionController(pos);
+    }
+
+    public void AddLeapSeconds(float toAdd)
+    {
+        leapSecondsElapsed += toAdd;
     }
 }

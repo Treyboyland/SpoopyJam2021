@@ -16,6 +16,15 @@ public class PlayerStatsSO : ScriptableObject
     List<int> moneyMultiplier;
 
     [SerializeField]
+    List<float> dashTimeUpgrades;
+
+    [SerializeField]
+    List<float> dashInvincibilityUpgrades;
+
+    [SerializeField]
+    List<float> energyRecoveryUpgrades;
+
+    [SerializeField]
     WeaponTypeSO leftEquipWeapon;
 
     [SerializeField]
@@ -26,6 +35,15 @@ public class PlayerStatsSO : ScriptableObject
 
     [SerializeField]
     PlayerUpgradeSO multiplierUpgrade;
+
+    [SerializeField]
+    PlayerUpgradeSO dashTimeUpgrade;
+
+    [SerializeField]
+    PlayerUpgradeSO dashInvincibilityUpgrade;
+
+    [SerializeField]
+    PlayerUpgradeSO energyRecoveryPerSecond;
 
     /*
     I don't like this. I feel like there is a more efficient way to do this.
@@ -70,6 +88,57 @@ public class PlayerStatsSO : ScriptableObject
         }
     }
 
+    public float DashTime
+    {
+        get
+        {
+            int index = GetCountOfUpgradeType(null, dashTimeUpgrade);
+            if (index == -1)
+            {
+                return 1;
+            }
+            if (index >= dashTimeUpgrades.Count)
+            {
+                index = dashTimeUpgrades.Count - 1;
+            }
+            return dashTimeUpgrades[index];
+        }
+    }
+
+    public float EnergyRecoveryPerSecond
+    {
+        get
+        {
+            int index = GetCountOfUpgradeType(null, energyRecoveryPerSecond);
+            if (index == -1)
+            {
+                return 1;
+            }
+            if (index >= energyRecoveryUpgrades.Count)
+            {
+                index = energyRecoveryUpgrades.Count - 1;
+            }
+            return energyRecoveryUpgrades[index];
+        }
+    }
+
+    public float DashInvincibility
+    {
+        get
+        {
+            int index = GetCountOfUpgradeType(null, dashInvincibilityUpgrade);
+            if (index == -1)
+            {
+                return 1;
+            }
+            if (index >= dashInvincibilityUpgrades.Count)
+            {
+                index = dashInvincibilityUpgrades.Count - 1;
+            }
+            return dashInvincibilityUpgrades[index];
+        }
+    }
+
     public PlayerStatsSO Duplicate()
     {
         var newThing = ScriptableObject.CreateInstance<PlayerStatsSO>();
@@ -78,6 +147,16 @@ public class PlayerStatsSO : ScriptableObject
         newThing.startingLives = startingLives;
         newThing.lifeUpgrade = lifeUpgrade;
         newThing.moneyMultiplier = new List<int>(moneyMultiplier);
+        newThing.dashTimeUpgrade = dashTimeUpgrade;
+        newThing.dashInvincibilityUpgrade = dashInvincibilityUpgrade;
+        newThing.multiplierUpgrade = multiplierUpgrade;
+
+        newThing.dashTimeUpgrades = new List<float>(dashInvincibilityUpgrades);
+        newThing.dashInvincibilityUpgrades = new List<float>(dashInvincibilityUpgrades);
+
+        newThing.energyRecoveryPerSecond = energyRecoveryPerSecond;
+        newThing.energyRecoveryUpgrades = new List<float>(energyRecoveryUpgrades);
+
 
         newThing.levelsForUpgrade = new List<WeaponTypeAndUpgradeCount>();
         foreach (var upgrade in levelsForUpgrade)
@@ -146,5 +225,19 @@ public class PlayerStatsSO : ScriptableObject
         }
 
         return -1;
+    }
+
+    public int GetTotalNumOfUpgrades()
+    {
+        int count = 0;
+        foreach (var upgradeType in levelsForUpgrade)
+        {
+            foreach (var upgrade in upgradeType.Upgrades)
+            {
+                count += upgrade.Value;
+            }
+        }
+
+        return count;
     }
 }

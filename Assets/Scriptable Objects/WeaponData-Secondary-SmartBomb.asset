@@ -12,29 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ba844b7a58cbf439c838f092cdddd8, type: 3}
   m_Name: WeaponData-Secondary-SmartBomb
   m_EditorClassIdentifier: 
-  weaponType: {fileID: 11400000, guid: 2315c07fa1aca6140914cfc92e147f72, type: 2}
-  projectile: {fileID: 8413677415729128128, guid: 8057e642693e24f4e8ee52a6d9c3de23, type: 3}
+  weaponType: {fileID: 11400000, guid: d78a0c84576986348bf82cec6c197205, type: 2}
+  projectile: {fileID: 3892086763214728508, guid: 942ccecc7306c684a912de319fe324f1, type: 3}
   projectileOrigin: {x: 0, y: 0, z: 0}
+  weaponFiredEvent: {fileID: 0}
+  firesEventInstead: 1
+  eventToFire: {fileID: 11400000, guid: 70c791846f2661746af2e63bf6958e22, type: 2}
   intUpgrades:
   - Upgrade: {fileID: 11400000, guid: fd13623f2ff82174f94ad1fb64ebbddf, type: 2}
-    Value: 0
+    Value: 6
   - Upgrade: {fileID: 11400000, guid: edb034479e79bb64392844fa6e6aa622, type: 2}
-    Value: 0
+    Value: 1
   floatUpgrades:
   - Upgrade: {fileID: 11400000, guid: 9ddfde46272a18f40b7ca7d92074e389, type: 2}
-    Value: 0
+    Value: 2
   - Upgrade: {fileID: 11400000, guid: d998564ec7f741f4cb08c33bc575c560, type: 2}
-    Value: 0
+    Value: 3
   - Upgrade: {fileID: 11400000, guid: e9401a9765de2d343946faf453af916e, type: 2}
-    Value: 0
+    Value: 30
   - Upgrade: {fileID: 11400000, guid: 1df7faadb7594944f814a0b533007f65, type: 2}
-    Value: 0
+    Value: 0.5
   - Upgrade: {fileID: 11400000, guid: 8f2a3c5c3cb342e48bf2864630448ad9, type: 2}
-    Value: 0
+    Value: 100
   - Upgrade: {fileID: 11400000, guid: 8c9afe661d4987640af22ed510144146, type: 2}
-    Value: 0
+    Value: 10
   floatListUpgrades:
   - Upgrade: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
     Value:
       Delimiter: ','
-      Value: 0
+      Value: 0,-20,20

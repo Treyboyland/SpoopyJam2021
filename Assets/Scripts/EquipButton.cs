@@ -19,7 +19,8 @@ public class EquipButton : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        textBox.text = equipData.IsLeft ? "L" : "R";
+        //textBox.text = equipData.IsLeft ? "L" : "R";
+        textBox.text = "Equip";
     }
 
     public void EquipWeapon()

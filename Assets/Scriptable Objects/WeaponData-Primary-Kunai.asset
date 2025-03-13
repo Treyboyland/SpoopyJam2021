@@ -15,6 +15,9 @@ MonoBehaviour:
   weaponType: {fileID: 11400000, guid: ef0564b3fb4086b48a03088b94ac493f, type: 2}
   projectile: {fileID: 8413677415729128128, guid: b8c69902a8d5d124691228a1014c65a7, type: 3}
   projectileOrigin: {x: 0, y: 0, z: 0}
+  weaponFiredEvent: {fileID: 11400000, guid: 8c7fce93aab6acd4fb52563003da3764, type: 2}
+  firesEventInstead: 0
+  eventToFire: {fileID: 0}
   intUpgrades:
   - Upgrade: {fileID: 11400000, guid: fd13623f2ff82174f94ad1fb64ebbddf, type: 2}
     Value: 0

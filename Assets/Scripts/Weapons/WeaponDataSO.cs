@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponData-", menuName = "Game/Weapon Data")]
 public class WeaponDataSO : ScriptableObject
 {
+
     [SerializeField]
     WeaponTypeSO weaponType;
 
@@ -15,6 +16,9 @@ public class WeaponDataSO : ScriptableObject
 
     [SerializeField]
     Vector3 projectileOrigin;
+
+    [SerializeField]
+    GameEvent weaponFiredEvent;
 
     [Tooltip("If the weapon should fire an event instead of projectiles")]
     [SerializeField]
@@ -36,6 +40,20 @@ public class WeaponDataSO : ScriptableObject
 
     public Projectile Projectile { get => projectile; }
     public Vector3 ProjectileOrigin { get => projectileOrigin; }
+
+    /// <summary>
+    /// Event that should be invoked if the weapon fires an event instead of
+    /// projectiles
+    /// </summary>
+    /// <value></value>
+    public GameEvent WeaponEvent { get => eventToFire; }
+
+    /// <summary>
+    /// Event that should be invoked if not using event fire
+    /// </summary>
+    /// <value></value>
+    public GameEvent WeaponFiredEvent { get => weaponFiredEvent; }
+    public bool FiresEventInstead { get => firesEventInstead; }
 
     public object GetUpgrade(PlayerUpgradeSO upgrade)
     {

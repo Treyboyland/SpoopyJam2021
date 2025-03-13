@@ -53,7 +53,7 @@ public class Projectile : MonoBehaviour
         var player = other.gameObject.GetComponent<Player>();
         if (isPlayer && enemy != null)
         {
-            enemy.KnockBack(dataSO.KnockBack);
+            enemy.KnockBack(knockBack);
             enemy.Damage(damage);
         }
         else if (!isPlayer && player != null)

@@ -15,6 +15,15 @@ public class PlayerWeaponSetter : MonoBehaviour
     [SerializeField]
     WeaponDataSO kunaiData;
 
+    [SerializeField]
+    WeaponDataSO dashData;
+
+    [SerializeField]
+    WeaponDataSO smartBombData;
+
+    [SerializeField]
+    WeaponDataSO randomFireData;
+
     [Header("Weapon Type")]
     [SerializeField]
     WeaponTypeSO pistolType;
@@ -45,6 +54,15 @@ public class PlayerWeaponSetter : MonoBehaviour
     WeaponLevelDataSO kunaiLevelData;
 
     [SerializeField]
+    WeaponLevelDataSO dashLevelData;
+
+    [SerializeField]
+    WeaponLevelDataSO smartBombLevelData;
+
+    [SerializeField]
+    WeaponLevelDataSO randomFireLevelData;
+
+    [SerializeField]
     bool isDebug;
 
     [SerializeField]
@@ -62,10 +80,10 @@ public class PlayerWeaponSetter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        allWeapons = new List<WeaponDataSO>() { pistolData, shotgunData, kunaiData };
-        allWeaponLevels = new List<WeaponLevelDataSO>() { pistolLevelData, shotgunLevelData, kunaiLevelData };
-        SetWeapon(new EquipData() { IsLeft = true, WeaponType = pistolType });
-        SetWeapon(new EquipData() { IsLeft = false, WeaponType = pistolType });
+        allWeapons = new List<WeaponDataSO>() { pistolData, shotgunData, kunaiData, smartBombData, dashData, randomFireData };
+        allWeaponLevels = new List<WeaponLevelDataSO>() { pistolLevelData, shotgunLevelData, kunaiLevelData, smartBombLevelData, dashLevelData, randomFireLevelData };
+        SetWeapon(new EquipData() { IsLeft = true, WeaponType = PlayerGameStats.Instance.InGameStats.LeftEquipWeapon });
+        SetWeapon(new EquipData() { IsLeft = false, WeaponType = PlayerGameStats.Instance.InGameStats.RightEquipWeapon });
     }
 
     void SetWeapon(Weapon playerWeapon, WeaponDataSO weaponData)
@@ -79,10 +97,13 @@ public class PlayerWeaponSetter : MonoBehaviour
         playerWeapon.FireAngles = dataFinder.GetFireAngles(weaponData);
 
 
-        playerWeapon.EnergyRecoveryPerSecond = dataFinder.GetEnergyRecoveryPerSecond(weaponData);
         playerWeapon.EnergyPerShot = dataFinder.GetEnergyPerShot(weaponData);
         playerWeapon.MaxEnergy = dataFinder.GetMaxEnergy(weaponData);
         playerWeapon.SecondsBetweenShots = dataFinder.GetSecondsBetweenShots(weaponData);
+
+        playerWeapon.OnWeaponFired = weaponData.WeaponFiredEvent;
+        playerWeapon.ShouldFireEvent = weaponData.FiresEventInstead;
+        playerWeapon.WeaponEvent = weaponData.WeaponEvent;
     }
 
 

@@ -15,10 +15,23 @@ MonoBehaviour:
   startingLives: 3
   money: 0
   moneyMultiplier: 010000000200000004000000
+  dashTimeUpgrades:
+  - 0
+  dashInvincibilityUpgrades:
+  - 0
+  energyRecoveryUpgrades:
+  - 1
+  - 2
+  - 4
+  - 6
+  - 10
   leftEquipWeapon: {fileID: 11400000, guid: bf0d8086d0fdcf846b2485bba1a8948e, type: 2}
-  rightEquipWeapon: {fileID: 11400000, guid: bf0d8086d0fdcf846b2485bba1a8948e, type: 2}
+  rightEquipWeapon: {fileID: 11400000, guid: d78a0c84576986348bf82cec6c197205, type: 2}
   lifeUpgrade: {fileID: 11400000, guid: f5dedf7230685024787b067e1224a3b2, type: 2}
   multiplierUpgrade: {fileID: 11400000, guid: 92f49f9e904ef424f881fc4822b11eaf, type: 2}
+  dashTimeUpgrade: {fileID: 11400000, guid: dd941ef51fe41b44aa5e55b5441f44c8, type: 2}
+  dashInvincibilityUpgrade: {fileID: 11400000, guid: de7d4369c01f3fb4099775d171881700, type: 2}
+  energyRecoveryPerSecond: {fileID: 11400000, guid: 8c9afe661d4987640af22ed510144146, type: 2}
   levelsForUpgrade:
   - WeaponType: {fileID: 11400000, guid: ef0564b3fb4086b48a03088b94ac493f, type: 2}
     Upgrades:
@@ -80,9 +93,77 @@ MonoBehaviour:
       Value: 0
     - Upgrade: {fileID: 11400000, guid: 1df7faadb7594944f814a0b533007f65, type: 2}
       Value: 0
+  - WeaponType: {fileID: 11400000, guid: c9a511e815c22a04896ae647e46bdfca, type: 2}
+    Upgrades:
+    - Upgrade: {fileID: 11400000, guid: fd13623f2ff82174f94ad1fb64ebbddf, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: edb034479e79bb64392844fa6e6aa622, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 9ddfde46272a18f40b7ca7d92074e389, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: d998564ec7f741f4cb08c33bc575c560, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: e9401a9765de2d343946faf453af916e, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 8c9afe661d4987640af22ed510144146, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 8f2a3c5c3cb342e48bf2864630448ad9, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 1df7faadb7594944f814a0b533007f65, type: 2}
+      Value: 0
+  - WeaponType: {fileID: 11400000, guid: accc94a506870644898b9c5355d88014, type: 2}
+    Upgrades:
+    - Upgrade: {fileID: 11400000, guid: fd13623f2ff82174f94ad1fb64ebbddf, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: edb034479e79bb64392844fa6e6aa622, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 9ddfde46272a18f40b7ca7d92074e389, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: d998564ec7f741f4cb08c33bc575c560, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: e9401a9765de2d343946faf453af916e, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 8c9afe661d4987640af22ed510144146, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 8f2a3c5c3cb342e48bf2864630448ad9, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 1df7faadb7594944f814a0b533007f65, type: 2}
+      Value: 0
+  - WeaponType: {fileID: 11400000, guid: d78a0c84576986348bf82cec6c197205, type: 2}
+    Upgrades:
+    - Upgrade: {fileID: 11400000, guid: fd13623f2ff82174f94ad1fb64ebbddf, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: edb034479e79bb64392844fa6e6aa622, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 9ddfde46272a18f40b7ca7d92074e389, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: d998564ec7f741f4cb08c33bc575c560, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: e9401a9765de2d343946faf453af916e, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 8c9afe661d4987640af22ed510144146, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 8f2a3c5c3cb342e48bf2864630448ad9, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 1df7faadb7594944f814a0b533007f65, type: 2}
+      Value: 0
   - WeaponType: {fileID: 0}
     Upgrades:
     - Upgrade: {fileID: 11400000, guid: f5dedf7230685024787b067e1224a3b2, type: 2}
       Value: 0
     - Upgrade: {fileID: 11400000, guid: 92f49f9e904ef424f881fc4822b11eaf, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 6d87b5c9f7564f34585b8833ca001a68, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: dd941ef51fe41b44aa5e55b5441f44c8, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: de7d4369c01f3fb4099775d171881700, type: 2}
+      Value: 0
+    - Upgrade: {fileID: 11400000, guid: 8c9afe661d4987640af22ed510144146, type: 2}
       Value: 0

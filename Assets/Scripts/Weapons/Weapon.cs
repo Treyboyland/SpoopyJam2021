@@ -40,6 +40,10 @@ public class Weapon : MonoBehaviour
 
     private float knockBack;
 
+
+    float energyProgress = 0;
+    private GameEvent weaponEvent;
+
     [Serializable]
     public struct TransformRotation
     {
@@ -77,13 +81,10 @@ public class Weapon : MonoBehaviour
 
     public int Damage { get => damage; set => damage = value; }
     public float KnockBack { get => knockBack; set => knockBack = value; }
-    public float EnergyRecoveryPerSecond { get => energyRecoveryPerSecond; set => energyRecoveryPerSecond = value; }
     public float EnergyPerShot { get => energyPerShot; set => energyPerShot = value; }
     public float MaxEnergy { get => maxEnergy; set => maxEnergy = value; }
     public float SecondsBetweenShots { get => secondsBetweenShots; set => secondsBetweenShots = value; }
 
-    float energyProgress = 0;
-    private GameEvent weaponEvent;
 
     public float EnergyProgress
     {
@@ -99,6 +100,8 @@ public class Weapon : MonoBehaviour
     /// </summary>
     /// <value></value>
     public bool ShouldFireEvent { get => shouldFireEvent; set => shouldFireEvent = value; }
+    public float CurrentEnergy { get => currentEnergy; }
+    public GameEvent OnWeaponFired { get => onWeaponFired; set => onWeaponFired = value; }
 
     public virtual void Fire()
     {
@@ -121,7 +124,15 @@ public class Weapon : MonoBehaviour
     /// </summary>
     void Update()
     {
-        currentEnergy = Mathf.Max(0, Mathf.Min(currentEnergy + energyRecoveryPerSecond * Time.deltaTime, maxEnergy));
+        if (isPlayer)
+        {
+            currentEnergy = Mathf.Max(0, Mathf.Min(currentEnergy + PlayerGameStats.Instance.InGameStats.EnergyRecoveryPerSecond * Time.deltaTime, maxEnergy));
+        }
+        else
+        {
+            currentEnergy = Mathf.Max(0, Mathf.Min(currentEnergy + energyRecoveryPerSecond * Time.deltaTime, maxEnergy));
+        }
+
         EnergyProgress = currentEnergy / maxEnergy;
         secondsSinceLastShot += Time.deltaTime;
         //Debug.LogWarning($"Weapon {CanFire}: {energyPerShot}/{currentEnergy}, {secondsSinceLastShot}/{secondsBetweenShots}");
@@ -140,7 +151,7 @@ public class Weapon : MonoBehaviour
         foreach (var item in FireAngles)
         {
             var bulletObj = MasterPool.Pool.GetObject(bullet) as Projectile;
-            bulletObj.transform.position = transform.position + projectileOrigin;
+            bulletObj.transform.position = transform.position + projectileOrigin * Mathf.Sin(transform.eulerAngles.z);
             bulletObj.transform.up = transform.up;
             bulletObj.transform.rotation *= Quaternion.AngleAxis(item, Vector3.forward);
             bulletObj.Damage = Damage;
@@ -152,5 +163,11 @@ public class Weapon : MonoBehaviour
         {
             onWeaponFired.Invoke();
         }
+    }
+
+    public void Refill()
+    {
+        currentEnergy = maxEnergy;
+        secondsSinceLastShot = secondsBetweenShots;
     }
 }

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f8fcdcfafc46e40afdea147d382614, type: 3}
+  m_Name: WeaponLevelData-Secondary-Dash
+  m_EditorClassIdentifier: 
+  weaponType: {fileID: 11400000, guid: c9a511e815c22a04896ae647e46bdfca, type: 2}
+  intUpgrades:
+  - Upgrade: {fileID: 11400000, guid: edb034479e79bb64392844fa6e6aa622, type: 2}
+    Value: 00000000
+  floatUpgrades:
+  - Upgrade: {fileID: 11400000, guid: 9ddfde46272a18f40b7ca7d92074e389, type: 2}
+    Value:
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+  - Upgrade: {fileID: 11400000, guid: e9401a9765de2d343946faf453af916e, type: 2}
+    Value:
+    - 10
+    - 20
+    - 15
+    - 10
+    - 5
+  - Upgrade: {fileID: 11400000, guid: 1df7faadb7594944f814a0b533007f65, type: 2}
+    Value:
+    - 0.5
+    - 0.3
+    - 0.15
+    - 0.1
+    - 0.05
+  - Upgrade: {fileID: 11400000, guid: 8f2a3c5c3cb342e48bf2864630448ad9, type: 2}
+    Value:
+    - 30
+    - 200
+    - 500
+    - 1000
+    - 2000
+  floatListUpgrades:
+  - Upgrade: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
+    Value:
+    - Delimiter: ','
+      Value: 0

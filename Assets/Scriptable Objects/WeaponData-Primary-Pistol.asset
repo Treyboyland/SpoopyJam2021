@@ -15,24 +15,27 @@ MonoBehaviour:
   weaponType: {fileID: 11400000, guid: bf0d8086d0fdcf846b2485bba1a8948e, type: 2}
   projectile: {fileID: 8413677415729128128, guid: d0dbbe50aab292c429d410cabe654314, type: 3}
   projectileOrigin: {x: 0, y: 0, z: 0}
+  weaponFiredEvent: {fileID: 11400000, guid: a6859aaeaf7cb674aa5fa489e8e87a25, type: 2}
+  firesEventInstead: 0
+  eventToFire: {fileID: 0}
   intUpgrades:
   - Upgrade: {fileID: 11400000, guid: fd13623f2ff82174f94ad1fb64ebbddf, type: 2}
-    Value: 0
+    Value: 6
   - Upgrade: {fileID: 11400000, guid: edb034479e79bb64392844fa6e6aa622, type: 2}
-    Value: 0
+    Value: 1
   floatUpgrades:
   - Upgrade: {fileID: 11400000, guid: 9ddfde46272a18f40b7ca7d92074e389, type: 2}
-    Value: 0
+    Value: 1
   - Upgrade: {fileID: 11400000, guid: d998564ec7f741f4cb08c33bc575c560, type: 2}
-    Value: 0
+    Value: 1
   - Upgrade: {fileID: 11400000, guid: e9401a9765de2d343946faf453af916e, type: 2}
-    Value: 0
+    Value: 30
   - Upgrade: {fileID: 11400000, guid: 1df7faadb7594944f814a0b533007f65, type: 2}
-    Value: 0
+    Value: 0.5
   - Upgrade: {fileID: 11400000, guid: 8f2a3c5c3cb342e48bf2864630448ad9, type: 2}
-    Value: 0
+    Value: 200
   - Upgrade: {fileID: 11400000, guid: 8c9afe661d4987640af22ed510144146, type: 2}
-    Value: 0
+    Value: 40
   floatListUpgrades:
   - Upgrade: {fileID: 11400000, guid: da2ca484e98389a468aa7ac2d02deee2, type: 2}
     Value:

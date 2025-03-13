@@ -8,6 +8,12 @@ public class Player : MonoBehaviour
     PlayerGameStats gameStats;
 
     [SerializeField]
+    float startingInvincibilityTime;
+
+    [SerializeField]
+    float invincibleTimeOnHit;
+
+    [SerializeField]
     Weapon leftWeapon;
 
 
@@ -54,11 +60,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     GameEventGeneric<Vector3> onPlayerDefeated;
 
-    [SerializeField]
-    float maxOxygen;
-
-    public float MaxOxygen { get { return maxOxygen; } set { maxOxygen = value; } }
-
     public bool IsInvincible => invincibleTime > 0;
 
     int currentHealth = 0;
@@ -94,6 +95,10 @@ public class Player : MonoBehaviour
         currentHealth = gameStats.InGameStats.MaxHealth;
         onLivesUpdated.Invoke(currentHealth);
         transform.position = startingPosition;
+        invincibleTime = 0;
+        AddInvincibilityTime(startingInvincibilityTime);
+        leftWeapon.Refill();
+        rightWeapon.Refill();
     }
 
     /// <summary>
@@ -134,6 +139,11 @@ public class Player : MonoBehaviour
 
     public void Damage(int damage)
     {
+        if (IsInvincible)
+        {
+            return;
+        }
+        
         if (damage > currentHealth)
         {
             currentHealth = 0;
@@ -142,6 +152,7 @@ public class Player : MonoBehaviour
         {
             currentHealth -= damage;
             onLivesUpdated.Invoke(currentHealth);
+            AddInvincibilityTime(invincibleTimeOnHit);
         }
 
         if (currentHealth == 0)

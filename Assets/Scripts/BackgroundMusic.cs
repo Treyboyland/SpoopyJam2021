@@ -14,21 +14,6 @@ public class BackgroundMusic : MonoBehaviour
     [SerializeField]
     AudioMixerSnapshot shopSnapshot;
 
-    static BackgroundMusic _instance;
-
-    private void Awake()
-    {
-        if (_instance != null && this != _instance)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        _instance = this;
-
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Start()
     {
         SetShopSnapshot();

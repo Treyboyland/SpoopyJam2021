@@ -18,5 +18,5 @@ MonoBehaviour:
   knockBackTime: 0.1
   damage: 1
   maxSpeed: 2
-  speed: 2
+  speed: 4
   moneyAwarded: 50

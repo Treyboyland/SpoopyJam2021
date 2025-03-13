@@ -31,6 +31,11 @@ public class UpgradeButton : MonoBehaviour
         upgradeEvent.Invoke(upgradeType);
     }
 
+    void OnValidate()
+    {
+        buttonText.text = $"Upgrade {upgradeType.PlayerUpgrade.UpgradeName}: XXXX";
+    }
+
     public void UpdateDescription()
     {
         if (PlayerGameStats.Instance == null)
