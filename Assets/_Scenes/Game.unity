@@ -5792,6 +5792,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b792b748-313d-48b3-95f3-9c19d08a280e
     m_ActionName: UI/Screenshot[/Keyboard/period,/SwitchProControllerHID/capture]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 1abf5ccb05e8c104cac4356e324f27ae, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e59cf52c-ee66-416a-8531-1e897c0f2ba9
+    m_ActionName: UI/Restart[/Keyboard/backspace,/SwitchProControllerHID/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: ac9350d4f13570742981b7981a0968bb, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d957d19b-60e5-4a4f-9eff-24a9465d3ae8
+    m_ActionName: UI/Quit[/Keyboard/escape,/SwitchProControllerHID/select]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
