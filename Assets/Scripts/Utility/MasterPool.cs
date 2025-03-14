@@ -33,8 +33,6 @@ public class MasterPool : MonoBehaviour
         }
 
         _instance = this;
-
-        DontDestroyOnLoad(gameObject);
     }
 
     MonoBehaviour CreateItem(MonoBehaviour itemToCreate)

@@ -82,6 +82,11 @@ public class PlayerWeaponSetter : MonoBehaviour
     {
         allWeapons = new List<WeaponDataSO>() { pistolData, shotgunData, kunaiData, smartBombData, dashData, randomFireData };
         allWeaponLevels = new List<WeaponLevelDataSO>() { pistolLevelData, shotgunLevelData, kunaiLevelData, smartBombLevelData, dashLevelData, randomFireLevelData };
+        RefreshWeapons();
+    }
+
+    public void RefreshWeapons()
+    {
         SetWeapon(new EquipData() { IsLeft = true, WeaponType = PlayerGameStats.Instance.InGameStats.LeftEquipWeapon });
         SetWeapon(new EquipData() { IsLeft = false, WeaponType = PlayerGameStats.Instance.InGameStats.RightEquipWeapon });
     }
